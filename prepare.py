@@ -8,6 +8,10 @@ def drop_telco(df):
 
     return df.drop(columns = ['payment_type_id', 'internet_service_type_id', 'contract_type_id', 'customer_id'])
 
+def fix_types_telco(df):
+    df['total_charges'] = df['total_charges'].replace(' ', 0).astype(float)
+    return df
+
 def fillna_telco(df):
     df['internet_service_type'] = df['internet_service_type'].fillna("No internet service")
     return df
@@ -28,7 +32,7 @@ def rename_telco(df):
         'tenure': 'tenure',
         'monthly_charges': 'monthly_charges',
         'total_charges': 'total_charges',
-        'gender_Male': 'Male',
+        'gender_Male': 'male',
         'partner_Yes': 'partner',
         'dependents_Yes': 'dependents',
         'phone_service_Yes': 'phone_service',
@@ -41,15 +45,15 @@ def rename_telco(df):
         'streaming_movies_Yes': 'streaming_movies',
         'paperless_billing_Yes': 'paperless_billing',
         'churn_Yes': 'churn',
-        'contract_type_Month-to-month': 'Contract Month',
-        'contract_type_One year': 'Contract One year',
-        'contract_type_Two year': 'Contract Two year',
-        'internet_service_type_DSL': 'internet DSL',
-        'internet_service_type_Fiber optic': 'internet Fiber optic',
-        'payment_type_Bank transfer (automatic)': 'payment Bank transfer',
-        'payment_type_Credit card (automatic)': 'payment Credit card',
-        'payment_type_Electronic check': 'payment Electronic check',
-        'payment_type_Mailed check': 'payment Mailed check'
+        'contract_type_Month-to-month': 'contract_month',
+        'contract_type_One year': 'contract_one_year',
+        'contract_type_Two year': 'contract_two_year',
+        'internet_service_type_DSL': 'internet_dsl',
+        'internet_service_type_Fiber optic': 'internet_fiber_optic',
+        'payment_type_Bank transfer (automatic)': 'payment_bank_transfer',
+        'payment_type_Credit card (automatic)': 'payment_credit_card',
+        'payment_type_Electronic check': 'payment_electronic_check',
+        'payment_type_Mailed check': 'payment_mailed_check'
     }
 
     # Rename the columns using the mapping
@@ -79,8 +83,10 @@ def telco_pipeline():
 
     df = drop_telco(df)
     
-    df = fillna_telco(df)
+    df = fix_types_telco(df)
 
+    df = fillna_telco(df)
+    
     df = dummies_telco(df)
 
     df = rename_telco(df)
@@ -95,6 +101,41 @@ def telco_work():
 
     df = drop_telco(df)
 
+    return df
 
 
+def rename_telco_proper(df):
+    column_mapping = {
+        'senior_citizen': 'Senior Citizen',
+        'tenure': 'Tenure',
+        'monthly_charges': 'Monthly Charges',
+        'total_charges': 'Total Charges',
+        'male': 'Male',
+        'partner': 'Partner',
+        'dependents': 'Dependents',
+        'phone_service': 'Phone Service',
+        'multiple_lines': 'Multiple Lines',
+        'online_security': 'Online Security',
+        'online_backup': 'Online Backup',
+        'device_protection': 'Device Protection',
+        'tech_support': 'Tech Support',
+        'streaming_tv': 'Streaming TV',
+        'streaming_movies': 'Streaming Movies',
+        'paperless_billing': 'Paperless Billing',
+        'churn': 'Churn',
+        'contract_month': 'Contract Month',
+        'contract_one_year': 'Contract One Year',
+        'contract_two_year': 'Contract Two Year',
+        'internet_dsl': 'Internet DSL',
+        'internet_fiber_optic': 'Internet Fiber Optic',
+        'payment_bank_transfer': 'Payment Bank Transfer',
+        'payment_credit_card': 'Payment Credit Card',
+        'payment_electronic_check': 'Payment Electronic Check',
+        'payment_mailed_check': 'Payment Mailed Check'
+    }
+
+    # Rename the columns using the mapping
+    df.rename(columns=column_mapping, inplace=True)
+
+    # Print the new column names
     return df
