@@ -1,7 +1,7 @@
 # Telco Churn
 
 # Description
-In the rapidly evolving telecommunications industry, understanding and mitigating customer churn has become a critical business concern. This data science project aims to analyze customer churn patterns using historical data and build predictive models to identify customers at risk of churning. By doing so, this project aims to provide actionable insights to Telco companies, enabling them to implement targeted retention strategies.
+In the rapidly evolving telecommunications industry, understanding and mitigating customer churn has become a critical business concern. This data science project aims to analyze customer churn patterns using historical data and build predictive models to identify customers at risk of churning. By doing so, this project aims to provide actionable insights to Telco, enabling them to implement targeted retention strategies.
 
 # Goals
 
@@ -71,7 +71,7 @@ My initial hypothesis is that customers who are relatively new, have certain ser
 | Monthly Charges| Monthly charges incurred by the customer|
 | Total Charges| Total charges incurred by the customer over the entire period|
 | Male| Gender of the customer (True for male, False for female)|
-| Partner| Whether the customer has a partner (True for yes, False for no)|
+| Partner| Whether the customer has a partner (spouse) (True for yes, False for no)|
 | Dependents| Whether the customer has dependents (True for yes, False for no)|
 | Phone Service| Whether the customer has phone service (True for yes, False for no)|
 | Multiple Lines| Whether the customer has multiple phone lines (True for yes, False for no)|
@@ -92,18 +92,3 @@ My initial hypothesis is that customers who are relatively new, have certain ser
 | Payment Credit Card| Whether the customer pays through credit card (True for yes, False for no)|
 | Payment Electronic Check| Whether the customer pays through electronic check (True for yes, False for no)|
 | Payment Mailed Check| Whether the customer pays through mailed check (True for yes, False for no)|
-
-
-| Feature | Definition |
-|:--------|:-----------|
-|Rated| True or False, The game's result is reflected in each player's rating|
-|Winning Pieces| The color of pieces the winning player was moving|
-|White Rating| Rating of the player moving the white pieces using the Glicko-2 rating method for games played on Lichess|
-|Black Rating| Rating of the player moving the white pieces using the Glicko-2 rating method for games played on Lichess|
-|Rating Difference| The difference in rating between the players in the game|
-|Game Rating| The average rating of the two players in the game|
-|Lower Rated White| True or False, The lower rated player is moving the white pieces|
-|Opening Name| The name of the opening played in the game|
-|Time Control Group| The amount of time allotted to each player to make their moves, **Standard** (60 min or more), **Rapid** (30 - 15 min), **Blitz** (5 - 3 min), or **Bullet** (2 or less), **Other** (any other time limit)|
-|Upset (Target)| True or False, The lower rated player won the game|
-|Additional Features|Encoded and values for categorical data and scaled versions continuous data|
