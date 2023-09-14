@@ -36,11 +36,11 @@ def replace_telco(df):
     df['senior_citizen'] = df['senior_citizen'].replace({1: 'Yes', 0: 'No'})
     df['multiple_lines'] = df['multiple_lines'].replace('No phone service', 'No')
     df['online_security'] = df['online_security'].replace('No internet service', 'No')
-    df['online_backup'] = df['online_security'].replace('No internet service', 'No')
-    df['device_protection'] = df['online_security'].replace('No internet service', 'No')
-    df['tech_support'] = df['online_security'].replace('No internet service', 'No')
-    df['streaming_tv'] = df['online_security'].replace('No internet service', 'No')
-    df['streaming_movies'] = df['online_security'].replace('No internet service', 'No')
+    df['online_backup'] = df['online_backup'].replace('No internet service', 'No')
+    df['device_protection'] = df['device_protection'].replace('No internet service', 'No')
+    df['tech_support'] = df['tech_support'].replace('No internet service', 'No')
+    df['streaming_tv'] = df['streaming_tv'].replace('No internet service', 'No')
+    df['streaming_movies'] = df['streaming_movies'].replace('No internet service', 'No')
     df['payment_method'] = df['payment_method'].replace({
         'Credit card (automatic)': 'Credit card',
         'Bank transfer (automatic)': 'Bank transfer'
